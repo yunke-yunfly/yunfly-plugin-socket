@@ -1,6 +1,6 @@
 {
   "name": "@yunflyjs/yunfly-plugin-socket",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "yunfly socket plugin.",
   "main": "./dist/app.js",
   "typings": "dist/app.d.ts",
