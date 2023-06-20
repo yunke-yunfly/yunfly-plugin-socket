@@ -37,11 +37,11 @@ export default class Socket {
    * @memberof Socket
    */
   runSocket(): void {
-    if (!this.config.socket || !this.config.socket.enable) {
+    if (!this.config || !this.config.enable) {
       return;
     }
 
-    const type = this.config.socket.type || 'worker';
+    const type = this.config.type || 'worker';
     if (type === 'worker' && cluster.isWorker) {
       cluster.worker.on('message', (msg: AnyOptionConfig) => {
         const { from, to, action } = msg || {};
@@ -60,7 +60,7 @@ export default class Socket {
    * @memberof Socket
    */
   runSocketTask(): void {
-    const io = require('socket.io')(this.server, this.config.socket);
+    const io = require('socket.io')(this.server, this.config);
 
     // socket middleware
     const RunMiddleware = async (socket: any) => {
