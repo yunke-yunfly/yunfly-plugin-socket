@@ -25,6 +25,17 @@ const plugins: { [key: string]: string }[] = [
 export default plugins;
 ```
 
+- 3. `config.default.ts` 中启用 socket
+
+```ts filename="src/config/config.default.ts"
+// socket
+config.socket = {
+  enable: true,
+  type: 'worker',  // 可选值 worker: 随机选择一个worker执行， all: 所有worker都执行, 默认为worker
+  path: '/socket.io'
+}
+```
+
 ### 使用
 
 * 根目录src下新增socket文件夹
